@@ -1,0 +1,11 @@
+version: "3"
+
+services:
+    calcip:
+        build: .
+        expose:
+            - "80"
+        volumes:
+             - ./app:/var/www/html
+        ports:
+        - "80:80"
