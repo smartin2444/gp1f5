@@ -4,14 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora IP</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>Convertir IPs</h1>
 
-    <h2>IP CIRD a Decimal</h2>
+    <h2>Calculadora classes A/B/C</h2>
+    <form action="classes.php">
+        <label for="ip">IP:</label>
+        <input type="text" name="ip" id="ip" placeholder="10.69.0.0">
+        <br>
+        <label for="mascara">Mascara:</label>
+        <select name="mascara" id="mascara">
+            <option value="8">255.0.0.0 - /8</option>
+            <option value="8">255.255.0.0 - /16</option>
+            <option value="8">255.255.255.0 - /24</option>
+        </select>
+
+        <input type="submit" value="Convertir">
+    </form>
+
+    <h2>IP CIDR a Decimal</h2>
     <form action="cidr_a_decimal.php">
-        <label for="ip_cidr">IP en format CDIR:</label>
-        <input type="text" name="ip" id="ip_cidr">
+        <label for="ip_cidr">IP en format CIDR:</label>
+        <input type="text" name="ip" id="ip_cidr" placeholder="10.69.0.1/24">
         <br>
         <input type="submit" value="Convertir">
     </form>
@@ -19,10 +35,10 @@
     <h2>IP Decimal a CIDR</h2>
     <form action="decimal_a_cidr.php">
         <label for="ip_decimal">IP:</label>
-        <input type="text" name="ip" id="ip_decimal">
+        <input type="text" name="ip" id="ip_decimal" placeholder="10.69.0.1">
         <br>
         <label for="mascara_decimal">Mascara en format decimal:</label>
-        <input type="text" name="mascara" id="mascara_decimal">
+        <input type="text" name="mascara" id="mascara_decimal" placeholder="255.255.255.0">
         <br>
         <input type="submit" value="Convertir">
     </form>

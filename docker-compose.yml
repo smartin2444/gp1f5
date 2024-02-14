@@ -1,11 +1,27 @@
 version: "3"
 
+
+networks:
+    xarxa_calcip:
+        driver: bridge
+
 services:
     calcip:
         build: .
         expose:
             - "80"
         volumes:
-             - ./app:/var/www/html
+            - ./app:/var/www/html
+        networks:
+            - xarxa_calcip
+
+    lb:
+        image: nginx:latest
+        volumes:
+            - ./nginx.conf:/etc/nginx/nginx.conf:ro
+        depends_on:
+            - calcip
         ports:
-        - "80:80"
+            - "80:8000"
+        networks:
+            - xarxa_calcip
