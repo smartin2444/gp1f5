@@ -29,11 +29,15 @@ if(isset($_GET['ip']) && isset($_GET['mascara'])){
 
 
     $nums_ip = explode('.', $ip_orig);
-    $n1 = $nums_ip[0];
-    $n2 = $nums_ip[1];
-    $n2 = $nums_ip[2];
-    $n3 = $nums_ip[3];
+    var_dump($nums_ip);
+    $n1 = $nums_ip[0] . "";
+    $n2 = $nums_ip[1] . "";
+    $n2 = $nums_ip[2] . "";
+    $n3 = $nums_ip[3] . "";
 
+    //echo "$n1.$n2.$n3.$n4";
+
+    //echo $nums_ip[1];
     $ip_xarxa = "";
     $ip_max = "";
     $ip_min = "";
@@ -41,7 +45,8 @@ if(isset($_GET['ip']) && isset($_GET['mascara'])){
     $ip_router = "";
     $ip_servidor = "";
 
-    if($_GET['mascara'] == 8){
+    if($_GET['mascara'] == "8"){
+        echo "/8";
         $ip_xarxa = "$n1.0.0.0";
         $ip_min = "$n1.0.0.1";
         $ip_max = "$n1.255.255.254";
@@ -50,7 +55,7 @@ if(isset($_GET['ip']) && isset($_GET['mascara'])){
         $ip_servidor = "$n1.0.0.2";
     }
 
-    if($_GET['mascara'] == 16){
+    if($_GET['mascara'] == "16"){
         $ip_xarxa =     "$n1.$n2.0.0";
         $ip_min =       "$n1.$n2.0.1";
         $ip_max =       "$n1.$n2.255.254";
@@ -59,7 +64,7 @@ if(isset($_GET['ip']) && isset($_GET['mascara'])){
         $ip_servidor =  "$n1.$n2.0.2";
     }
 
-    if($_GET['mascara'] == 24){
+    if($_GET['mascara'] == "24"){
         $ip_xarxa =     "$n1.$n2.$n3.0";
         $ip_min =       "$n1.$n2.$n3.1";
         $ip_max =       "$n1.$n2.$n3.254";
